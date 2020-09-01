@@ -1,5 +1,7 @@
 import React from 'react';
 
+import cx from 'classnames';
+
 //import card visuals from material ui
 import {Card, CardContent, Typography, Grid} from '@material-ui/core';
 
@@ -19,7 +21,7 @@ const Cards = ({ data : {confirmed, deaths, recovered, lastUpdate} }) => {
     return (
         <div className={styles.container}>
             <Grid container spacing = {3} justify="center">
-                <Grid item component={Card}>
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card,styles.infected)}>
                     <CardContent>
                         <Typography color="textSecondary">
                         Infected
@@ -41,7 +43,7 @@ const Cards = ({ data : {confirmed, deaths, recovered, lastUpdate} }) => {
                     </CardContent>
 
                 </Grid>
-                <Grid item component={Card}>
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card,styles.infected)}>
                     <CardContent>
                     <Typography color="textSecondary">
                         Recovered
@@ -66,7 +68,7 @@ const Cards = ({ data : {confirmed, deaths, recovered, lastUpdate} }) => {
                     </CardContent>
 
                 </Grid>
-                <Grid item component={Card}>
+                <Grid item component={Card} xs={12} md={3} className={cx(styles.card,styles.infected)}>
                     <CardContent>
                     <Typography color="textSecondary">
                         Deaths
