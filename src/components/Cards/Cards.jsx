@@ -7,7 +7,7 @@ import {Card, CardContent, Typography, Grid} from '@material-ui/core';
 import styles from './Cards.module.css';
 
 //dependency to count up so it has live chaing effect on the webapp
-
+import CountUp from 'react-countup';
 
 const Cards = ({ data : {confirmed, deaths, recovered, lastUpdate} }) => {
 
@@ -25,10 +25,15 @@ const Cards = ({ data : {confirmed, deaths, recovered, lastUpdate} }) => {
                         Infected
                         </Typography>
                         <Typography variant="h5">
-                        {confirmed.value}
+                        <CountUp
+                            start = {0}
+                            end = {confirmed.value}
+                            duration={2.5}
+                            separator = ","
+                        />
                         </Typography>
                         <Typography color="textSecondary">
-                        Real Date
+                       {new Date(lastUpdate).toDateString()}
                         </Typography>
                         <Typography variant="body2">
                         Number of active cases of COVID-19
