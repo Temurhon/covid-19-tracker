@@ -43,14 +43,22 @@ const Cards = ({ data : {confirmed, deaths, recovered, lastUpdate} }) => {
                 </Grid>
                 <Grid item component={Card}>
                     <CardContent>
-                        <Typography color="textSecondary">
+                    <Typography color="textSecondary">
                         Recovered
+                        </Typography>
+                        <Typography variant="h5">
+                        <CountUp
+                            start = {0}
+                            end = {recovered.value}
+                            duration={2.5}
+                            separator = ","
+                        />
                         </Typography>
                         <Typography variant="h5">
                         Real Data
                         </Typography>
                         <Typography color="textSecondary">
-                        Real Date
+                       {new Date(lastUpdate).toDateString()}
                         </Typography>
                         <Typography variant="body2">
                         Number of recoveries of COVID-19
@@ -60,14 +68,22 @@ const Cards = ({ data : {confirmed, deaths, recovered, lastUpdate} }) => {
                 </Grid>
                 <Grid item component={Card}>
                     <CardContent>
-                        <Typography color="textSecondary">
+                    <Typography color="textSecondary">
                         Deaths
+                        </Typography>
+                        <Typography variant="h5">
+                        <CountUp
+                            start = {0}
+                            end = {deaths.value}
+                            duration={2.5}
+                            separator = ","
+                        />
                         </Typography>
                         <Typography variant="h5">
                         Real Data
                         </Typography>
                         <Typography color="textSecondary">
-                        Real Date
+                       {new Date(lastUpdate).toDateString()}
                         </Typography>
                         <Typography variant="body2">
                         Number of death cases of COVID-19
