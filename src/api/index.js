@@ -41,3 +41,6 @@ export const fetchDailyData = async () => {
 
     }
 }
+
+
+//https://www.youtube.com/watch?v=khJlrj3Y6Ls  1:34:11
