@@ -8,7 +8,7 @@ const Charts = () => {
     const [dailyData, setDailyData] = useState([]);
 
         useEffect(() => {
-                const fetchapi = async () => {
+                const fetchAPI = async () => {
                     const dailyData = await fetchDailyData();
                 }
 
@@ -20,14 +20,14 @@ const Charts = () => {
              ?(
             <Line
             data={{
-                labels: dailyData(({date}) => date),
+                labels: dailyData.map(({date}) => date),
                 datasets: [{
-                    data: dailyData(({date}) => confirmed),
+                    data: dailyData(({confirmed}) => confirmed),
                     label: 'Infected',
                     borderColor:'#3333ff',
                     fill: true,
                 }, {
-                    data: dailyData(({date}) => deaths),
+                    data: dailyData.map(({deaths}) => deaths),
                     label: 'Deaths',
                     borderColor:'red',
                     borderColor: 'rgba(255,0,0,0.5)',
