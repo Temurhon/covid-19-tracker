@@ -6,12 +6,19 @@ export const fetchData = async () => {
     //try will be executed if the fetch is successful, otherise it'll be catch.
 try{
     //get response from await.
-const response = await axios.get(url);
+const {data} = await axios.get(url);
+
+const modifiedData = {
+confirmed: data.confirmed,
+recovered: data.recovered,
+deaths: data.deaths,
+lastUpdate: data.lastUpdate,
+}
 
 //to see what we are getting.
-console.log(response);
+console.log(modifiedData);
 
-return response;
+return modifiedData;
 
 }
 catch (error){
