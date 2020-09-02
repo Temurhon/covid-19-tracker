@@ -16,13 +16,13 @@ const Charts = () => {
         });
 
         const lineChart = (
-            dailyData.length
+            dailyData.length !== 0
              ?(
             <Line
             data={{
                 labels: dailyData.map(({date}) => date),
                 datasets: [{
-                    data: dailyData(({confirmed}) => confirmed),
+                    data: dailyData.map(({confirmed}) => confirmed),
                     label: 'Infected',
                     borderColor:'#3333ff',
                     fill: true,
