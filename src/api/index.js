@@ -2,11 +2,17 @@ import axios from 'axios';
 
 const url = 'https://covid19.mathdro.id/api';
 
-export const fetchData = async () => {
+export const fetchData = async (country) => {
+let changableUrl = url;
+
+if(country){
+    changableUrl = `${url}/countries/${country}`
+}
+
     //try will be executed if the fetch is successful, otherise it'll be catch.
 try{
     //get response from await.
-const {data} = await axios.get(url);
+const {data} = await axios.get(changableUrl);
 
 const modifiedData = {
 confirmed: data.confirmed,
@@ -21,7 +27,7 @@ return modifiedData;
 
 }
 catch (error){
-
+console.log(error);
 }
 }
 
