@@ -15,8 +15,7 @@ deaths: data.deaths,
 lastUpdate: data.lastUpdate,
 }
 
-//to see what we are getting.
-console.log(modifiedData);
+
 
 return modifiedData;
 
@@ -26,6 +25,7 @@ catch (error){
 }
 }
 
+//api fetching the cases of confirmed, deaths and dates in a mapped loop
 export const fetchDailyData = async () => {
     try{
             const {data} = await axios.get(`${url}/daily`);
@@ -40,6 +40,20 @@ export const fetchDailyData = async () => {
     catch(error){
 
     }
+}
+
+//this gets the countries that are available through the api, also looping.
+//catch will result in an error through the console.
+export const fetchCountries = async () => {
+
+    try{
+        const {data : {countries}} = await axios.get(`${url}/countries`);
+       
+        return countries.map((country) => country.name);
+    }catch (error){
+       console.log(error);
+    }
+
 }
 
 
